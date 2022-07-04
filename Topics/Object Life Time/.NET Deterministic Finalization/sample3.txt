@@ -1,0 +1,52 @@
+ MyClass obj = new MyClass();
+    try
+    {
+       obj.SomeMethod();
+    }
+    finally
+    {
+       IDisposable disposable = obj as IDisposable;
+      
+       if(disposable != null)
+       {    
+          disposable.Dispose();
+       }
+    }
+
+****************************
+ MyClass obj = new MyClass();
+      
+    using(obj)
+    {
+       obj.SomeMethod();
+    }
+
+is equivalent to =
+
+MyClass obj = new MyClass();
+      
+    try
+    {
+       obj.SomeMethod();
+    }
+    finally
+    {
+       if(obj != null)
+       {
+          IDisposable disposable = obj;
+          disposable.Dispose();
+       }
+    }
+********************************
+ MyClass obj1 = new MyClass();
+    MyClass obj2 = new MyClass();
+    MyClass obj3 = new MyClass();
+    
+    using(obj1)
+    using(obj2)
+    using(obj3)
+    {
+       obj1.SomeMethod();
+       obj2.SomeMethod();
+       obj3.SomeMethod();
+    }

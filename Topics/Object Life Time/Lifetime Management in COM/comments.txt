@@ -1,0 +1,9 @@
+Lifetime Management in COM
+Lifetime Management Resources
+
+Lifetime management works via reference counting in the COM. IUnknown::AddRef and IUnknown::Release are use in there.
+Thats mean counters change by developer. If counter equal to 0 then the object destroyed.
+Reference countings are affect the performance. Performans kaybı ve ölü nesnelerin tespit edilememesi başlıca iki sorundur. Eğer CLR(common language runtime)'ye
+ referans sayımı eklenirse performansta büyük bir etki görülür.
+Visual Studio içinde COm bileşeni başvurusu olduğunda RCW(runtime callable wrapper) üretmek için arka planda çalışan tlbimp.exe'yi kullanırsınız. Bunlarla birlikte
+AddRef bileşen oluşturulduktan sonra, Release is RCW sonlandırıldığında çağrılır. RCW'nin sonlandırıldığından emin olmak için Dispose çağrılır.

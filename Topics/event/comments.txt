@@ -1,0 +1,1 @@
+Bir sınıfta veya benzeri yapılarda olay bildirmek için kullanılır.

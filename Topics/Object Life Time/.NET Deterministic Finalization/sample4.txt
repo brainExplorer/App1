@@ -1,0 +1,40 @@
+public interface IMyInterface
+    {
+       void SomeMethod();
+    }
+    public class MyClass: IMyInterface,IDisposable
+    {
+       public void SomeMethod()
+       {}
+       publicd Dispose()
+       {}
+    }
+   
+    IMyInterface obj = new MyClass();
+    using(obj)//This line does not compile now
+    {  
+       obj.SomeMethod();
+    }
+****************************************
+ublic interface IMyInterface
+    {
+       void SomeMethod();
+    }
+    public class MyClass: IMyInterface,IDisposable
+    {
+       public void SomeMethod()
+       {}
+       public void Dispose()
+       {}
+    }
+    IMyInterface obj = new MyClass();
+    using((IDisposable)obj)
+    {  
+       obj.SomeMethod();
+    }
+/*
+ using(obj as IDisposable)
+    {  
+       obj.SomeMethod();
+    }
+*/

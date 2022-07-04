@@ -1,0 +1,31 @@
+ public interface IDisposable
+    {
+       void Dispose();
+    }
+
+
+public interface IMyInterface
+    {      
+       void SomeMethod();
+    }
+    public class MyClass : IMyInterface,IDisposable
+    {  
+       public void SomeMethod()
+       {...}  
+       public void Dispose()  
+       {     
+          //Do object cleanup and call base.Dispose() if it has one
+       }  
+       //More methods and resources
+    }
+
+
+IMyInterface obj = new MyClass();
+    obj.SomeMethod();
+      
+    //Client wants to dispose of whatever needs disposing:
+    IDisposable disposable = obj as IDisposable;
+    if(disposable != null)
+    {      
+       disposable.Dispose();
+    }

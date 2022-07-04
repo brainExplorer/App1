@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.HomePage">
+    <ContentPage.Content>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".1*"/>
+                <RowDefinition Height=".1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".3*" />
+                <ColumnDefinition Width=".3*"/>
+                <ColumnDefinition Width=".3*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Header-->
+            <Label Grid.Row="0" Grid.ColumnSpan="3" FontAttributes="Bold" TextColor="#FED049" BackgroundColor="#007580" Text="TOPICS" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <!-- Body-->
+            <Label x:Name="labelAsynchronous" Text="Asynchronous" TextColor="#FBF3E4" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#247881" Grid.Column="0" Grid.Row="1">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped ="AsynchronousFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Delegates" TextColor="#FBF3E4" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#247881" Grid.Column="1" Grid.Row="1">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="DelegatesFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Design Patterns" TextColor="#FBF3E4" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#247881" Grid.Column="2" Grid.Row="1">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="DesignPatternsFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Dynamic" TextColor="#FBF3E4" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#43919B" Grid.Column="0" Grid.Row="2" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="DynamicFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Event" TextColor="#FBF3E4" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#43919B" Grid.Column="1" Grid.Row="2">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="EventFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Exception Handling" TextColor="#FBF3E4" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#43919B" Grid.Column="2" Grid.Row="2" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ExceptionHandlingFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Extensions" TextColor="#FBF3E4" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#30AADD" Grid.Column="0" Grid.Row="3" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ExtensionsFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Generic" TextColor="#FBF3E4" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#30AADD" Grid.Column="1" Grid.Row="3" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="GenericFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Inheritance" TextColor="#FBF3E4" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#30AADD" Grid.Column="2" Grid.Row="3" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="InheritanceFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Lambda Expressions" TextColor="#D57E7E" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#82DBD8" Grid.Column="0" Grid.Row="4" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LambdaExpressionsFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="LINQ" TextColor="#D57E7E" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#82DBD8" Grid.Column="1" Grid.Row="4">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LinqFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Nullable" TextColor="#D57E7E" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#82DBD8" Grid.Column="2" Grid.Row="4" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NullableFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Object Life Time" TextColor="#D57E7E" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#B3E8E5" Grid.Column="0" Grid.Row="5" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ObjectLifeTimeFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Partial  Classes" TextColor="#D57E7E" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#B3E8E5" Grid.Column="1" Grid.Row="5" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PartialClassesFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Regular Expressions" TextColor="#D57E7E" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#B3E8E5" Grid.Column="2" Grid.Row="5">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="RegularExpressionsFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Label Text="Type Conversions" TextColor="#D57E7E" FontAttributes="Bold" FontSize="Subtitle" VerticalTextAlignment="Center" Margin="4"
+                   HorizontalTextAlignment="Center" BackgroundColor="#D3EBCD" Grid.Column="1" Grid.Row="6">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TypeConversionsFunction"/>
+                </Label.GestureRecognizers>
+            </Label>
+            
+            <!--Footer -->
+            <Label Grid.Row="7" Grid.ColumnSpan="3" FontAttributes="Bold" BackgroundColor="#AEDBCE" Text="Hints to C# advanced topics." FontSize="Body" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+        </Grid>
+
+    </ContentPage.Content>
+ 
+</ContentPage>
+    

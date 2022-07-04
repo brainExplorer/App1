@@ -1,0 +1,10 @@
+In .NET programming, an object is created with the new keyword and allocated on the managed heap. 
+The object is alive until the garbage collector finds out that the object is no longer reachable from a strong root reference via a path of strong references. 
+Each program has a main method and an associated class as well as static classes that all might contain local variables, static members, or even events. 
+These static or local references are considered to be root references within your program.
+Ordinary .NET Framework references are known to be strong references.
+Object lifetime is determined by the path of strong references that point from a root reference to an object.
+Sometime you do not change the lifetime of an object. So the .NET Framework have an additional class called WeakReference that allows you to implement a weak reference between objects.
+This weak reference is ignored when determining the lifetime of an object.
+The WeakEvent pattern has been used in the Windows Presentation Foundation (WPF) Data Binding implementation to prevent leakage due to data binding.
+(https://docs.microsoft.com/en-us/archive/msdn-magazine/2007/november/clr-inside-out-managing-object-lifetime)

@@ -1,0 +1,4 @@
+When the run garbage colllector(GC) all other threads are paused and then GC analyzes memory for dead objects.
+Finalize method performs finalization, moslty form of cleanup.During object destruction, object being deallocated are some finalize work. 
+Finalizers not recommend therefore due to difficulty in proper use and the complexity they add. You can use alternatively dispose.
+

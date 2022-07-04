@@ -1,0 +1,107 @@
+public class BaseClass: IDisposable
+    {
+       private bool m_Disposed = false;
+       protected bool Disposed
+       {
+          get
+          {
+             lock(this)
+             {
+                return m_Disposed;
+             }
+          }
+       }
+      
+       //Do not make Dispose() virtual - you should prevent subclasses from overriding
+       public void Dispose()
+       {
+          lock(this)
+          {
+             //Check to see if Dispose() has already been called
+             if(m_Disposed == false)
+             {
+                Cleanup();
+                m_Disposed = true;
+                //Take yourself off the finalization queue
+                //to prevent finalization from executing a second time.
+                GC.SuppressFinalize(this);
+             }
+          }
+       }
+       protected virtual void Cleanup()
+       {
+          /*Do cleanup here*/
+       }
+       //Destructor will run only if Dispose() is not called.
+       //Do not provide destructors in types derived from this class.
+       ~BaseClass()  
+       {
+          Cleanup();
+       }
+       public void DoSomething()
+       {
+          if(Disposed)//verify in every method
+          {
+             throw new ObjectDisposedException("Object is already disposed");
+          }
+       }
+    }
+      
+    public class SubClass1 : BaseClass
+    {
+       protected override void Cleanup()
+       {
+          try
+          {
+             /*Do cleanup here*/
+          }
+          finally
+          {
+             //Call base class
+             base.Cleanup();
+          }
+       }
+    }
+      
+    public class SubClass2 : SubClass1
+    {
+       protected override void Cleanup()
+       {
+          try
+          {
+             /*Do cleanup here*/
+          }
+          finally
+          {
+             //Call base class
+             base.Cleanup();
+          }
+       }
+    }
+Dispose() can be called by only one thread at a time, because it uses a synchronization lock (discussed in Chapter 8). This prevents a race condition in which two threads try to dispose of the object concurrently. 
+Here is how the mechanism shown in the template works:
+Note that Cleanup() is both virtual and protected. Making it virtual allows subclasses to override it. Making it protected prevents clients from using it. 
+The client creates and uses an object from the class hierarchy and then calls Dispose() on it by using IDisposable or Dispose() directly.
+
+Regardless of which level of the class hierarchy the object is from, the call is served by the topmost base class, which calls the virtual Cleanup() method.
+
+The call travels to the lowest possible subclass and calls its Cleanup() method. Because at each level the Cleanup() method calls its base class’s Cleanup() method, each level gets to perform its own cleanup.
+
+If the client never calls Dispose(), the destructor calls the Cleanup() method.
+
+Note that the template correctly handles all permutations of variable type, actual instantiation type, and casting:
+
+    SubClass1 a = new SubClass2();
+    a.Dispose();
+      
+    SubClass1 b = new SubClass2();
+    ((SubClass2)b).Dispose();
+      
+    IDisposable c = new SubClass2();
+    c.Dispose();
+      
+    SubClass2 d = new SubClass2();
+    ((SubClass1)d).Dispose();
+      
+    SubClass2 e = new SubClass2();
+    e.Dispose();

@@ -1,0 +1,15 @@
+public interface IMyInterface
+    {}
+    public class SomeClass : IMyInterface,IDisposable
+    {...}
+    public class MyClass<T> where T : IDisposable
+    {
+       public void SomeMethod(T t)
+       {
+          using(t)
+          {...}
+       }
+    }
+    SomeClass someClass = new SomeClass();
+    MyClass<IMyInterface> obj = new MyClass<IMyInterface>(); //Does not compile
+    obj.SomeMethod(someClass);

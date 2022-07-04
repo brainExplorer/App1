@@ -1,0 +1,1 @@
+Kullanılan event aboneliklerinin bellekten serbest bırakılmaması durumunda ortaya çıkar.

@@ -1,0 +1,12 @@
+.Net, nesnelerin işgal ettiği belleklerden ayrılması işleminde işi basitleştiridiği için yani çoğunlukla kullanıcı müdahalesi olmaksızın gerçekleştiğinden bazı sorunlar olabiliyor.
+Veritabanı veya dosyalar gibi bağlantıların içerildiği maliyetli nesneler tutulduğu bellekten serbest bırakılamayabiliyor. Bunlar sistemin ölçeklenebilirliğini ve verimini etkiler.
+Deterministik olmayan sonuçlandırmadan kaynakların çözümlerine verilen deterministik sonuçlandırma devreye girer.
+Tüm deterministik sonuçlandırma tekniklerinde işi bitmiş nesneler belirtilir. Tanımlanan teknikler:
+The Open/Close Pattern
+The Dispose() Pattern(sample1)
+The IDisposable Pattern(sample2)
+Disposing and Error Handling(sample3)
+The using statement and interfaces(sample4)
+The using statements and generics(sample5)
+Dispose() and Finalize()
+Deterministic Finalization Template(finalSample)

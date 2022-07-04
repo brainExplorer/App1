@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.TopicsClasses.DelegatesFunctionForm">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="lvDelegateElements" Margin="5" HasUnevenRows="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="Beige" Padding="6">
+                                <Label Text="{Binding topic}" LineBreakMode="WordWrap" TextColor="#774360"  FontSize="Title"/>
+                                <Label Text="{Binding explains}" LineBreakMode="WordWrap" TextColor="#3A5BA0" FontSize="Body"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
